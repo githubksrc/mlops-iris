@@ -60,4 +60,4 @@ def test_pred_Versicolour():
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Versicolour"}
+        assert response.json() == {"flower_class": "Iris Versicolour"}
