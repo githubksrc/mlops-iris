@@ -25,7 +25,9 @@ def test_pred_virginica():
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Iris Virginica"}
+        #assert response.json() == {"flower_class": "Iris Virginica"}
+        assert response.json()["flower_class"]== "Iris Virginica"
+        assert response.json()["timstamp"] != ''
 
 
 # test to check if Iris Setosa is classified correctly
@@ -43,7 +45,10 @@ def test_pred_Setosa():
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Iris Setosa"}
+        #assert response.json() == {"flower_class": "Iris Setosa"}
+        assert response.json()["flower_class"]== "Iris Setosa"
+        assert response.json()["timstamp"] != ''
+
 
 # test to check if Iris Versicolour is classified correctly
 def test_pred_Versicolour():
@@ -60,4 +65,6 @@ def test_pred_Versicolour():
         response = client.post("/predict_flower", json=payload)
         # asserting the correct response is received
         assert response.status_code == 200
-        assert response.json() == {"flower_class": "Iris Versicolour"}
+        #assert response.json() == {"flower_class": "Iris Versicolour"}
+        assert response.json()["flower_class"]== "Iris Versicolour"
+        assert response.json()["timstamp"] != ''
